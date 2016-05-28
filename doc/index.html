@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Grenzenlose Grafik: 2D, 3D und Gamepad für alle Plattformen und Devices</title>
+        <meta name="author" content="Christian Liebel">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/stc.css" id="theme">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            			link.rel = 'stylesheet';
+            			link.type = 'text/css';
+            			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            			document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <!--[if lt IE 9]>
+            <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+            html {
+                background-color: inherit;
+                font-family: monospace !important;
+            }
+
+            .reveal {
+               background-position: center bottom;
+               background-repeat: no-repeat;
+               background-size: contain;
+            }
+          
+            .frontpage > * {
+                visibility: hidden;
+            }
+
+            body .reveal .slide-number {
+                right: 5px;
+                bottom: 5px;
+                font-weight: bold;
+                color: white;
+            }
+
+            .reveal .controls {
+                bottom: 90px;
+            }
+            
+            .no-border {
+                border: 0 !important;
+            }
+            
+            .no-shadow {
+                box-shadow: none !important;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section data-background="images/stuttgart-ascii.png" class="white">
+                    <h1>Grenzenlose Grafik</h1>
+                    <h2>2D, 3D und Gamepad für alle Plattformen und Devices</h2>
+                    <h3>Christian Liebel</h3>
+                    <h4>Thinktecture AG</h4>
+                    <br/><br/><br/><br/><br/><br/>
+                </section>
+                <section data-background="images/stuttgart-ascii.png" class="white">
+                    <h1>Kontakt</h1>
+                    <img src="https://www.gravatar.com/avatar/55b6dbcd0b31a494564d01cd717c64f6?s=500" class="portrait" style="float: right; width: 250px; height: 250px; border-radius: 100%;" />
+                    <h3>Christian Liebel</h3>
+                    <h4>Thinktecture AG</h4>
+                    <h4>christian.liebel@thinktecture.com</h4>
+                    <h4>@chris_liebel</h4>
+                    <br/><br/><br/><br/><br/><br/>
+                </section>
+                <section>
+                    <h2>Agenda</h2>
+                    <ul>
+                        <li>2D</li>
+                        <li>3D</li>
+                        <li>Gamepad</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Real Cross-Platform</h2>
+                    <ul>
+                        <li>The <strong>web</strong> is the platform</li>
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li><strong>One codebase</strong>, maximum code sharing</li>
+                        <li>Works on virtually <strong>any</strong> platform</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>2D</h1>
+                    <h3>HTML5 Canvas for the win</h3>
+                </section>
+                <section>
+                    <h2><code>&lt;canvas&gt;</code></h2>
+                    <ul>
+                        <li>Generating fast, dynamic graphics using JavaScript</li>
+                        <li>Plain bitmap for the web</li>
+                        <li>Drawing tools are provided by <strong>contexts</strong></li>
+                        <li>Hi-DPI support</li>
+                        <li>High performance, low energy consumption</li>
+                        <li><code>requestAnimationFrame</code></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contexts</h2>
+                    <ul>
+                        <li><code>canvas.getContext</code></li>
+                        <li>Provide tools to draw on the canvas</li>
+                        <li>2D context: <code>2d</code> (CanvasRenderingContext2D)</li>
+                        <li>3D context: <code>webgl</code> (WebGLRenderingContext)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2><code>devicePixelRatio</code></h2>
+                    <ul>
+                        <li>Device pixels vs. CSS pixels</li>
+                        <li>“Retina” (Hi-DPI) support</li>
+                        <li><code>window.devicePixelRatio</code></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2><code>requestAnimationFrame</code></h2>
+                    <ul>
+                        <li>Just in time (matches screen refresh rate)</li>
+                        <li>Does not execute when window is minimized or tab in the background</li>
+                        <li>Does not execute when browser is busy</li>
+                        <li>No stacking/queueing</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Browser Support</h2>
+                    <img src="images/browsersupport.png" />
+                    <p>
+                        <small>From <a href="http://caniuse.com/#search=canvas">http://caniuse.com/#search=canvas</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Performance</h2>
+                    <img src="images/jsperf.png" />
+                    <p>
+                        <small>From <a href="http://jsperf.com/html-vs-svg-vs-canvas/31">http://jsperf.com/html-vs-svg-vs-canvas/31</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Coordinate System</h2>
+                    <p>Inverted</p>
+                    <img src="images/canvas-coordinate.png" />
+                    <p>
+                        <small>From <a href="http://www.sitepoint.com/html5-canvas-tutorial-introduction/">http://www.sitepoint.com/html5-canvas-tutorial-introduction/</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Touch-Enabled Graphs</h2>
+                    <a href="https://zoomcharts.com/en/gallery/all:network-graph-company-network-icons" target="_blank">
+                        <img src="images/examples_1_graph.jpg" alt="Touch-Enabled, Fast and Fluid Graphs" />
+                        <small>https://zoomcharts.com/en/gallery/all:network-graph-company-network-icons</small>
+                    </a>
+                </section>
+                <section>
+                    <h2>Real-Time Video Manipulation</h2>
+                    <a href="http://www.craftymind.com/factory/html5video/CanvasVideo.html" target="_blank">
+                        <img src="images/examples_2_video.jpg" alt="Real-Time Video Manipulation" />
+                        <small>http://www.craftymind.com/factory/html5video/CanvasVideo.html</small>
+                    </a>
+                </section>
+                <section>
+                    <h2>Charting Libraries</h2>
+                    <ul>
+                        <li>SVG-based</li>
+                        <ul>
+                            <li>D3.js (open source)</li>
+                            <li>HighCharts (commercial)</li>
+                        </ul>
+                        <li>Canvas-based</li>
+                        <ul>
+                            <li>Chart.js (open source)</li>
+                            <li>ZoomCharts (commercial)</li>
+                        </ul>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Game Engines</h2>
+                    <ul>
+                        <li>melonJS</li>
+                        <li>Quintus</li>
+                        <li>EaselJS</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h1>3D</h1>
+                    <h3>dimension++;</h3>
+                </section>
+                <section>
+                    <h2><span style="color:lime;">3D</span> Content<br/>in a <span style="color:lime;">3D</span> world<br/>with <span style="color:hotpink;">2D</span> screens</h2>
+                    <p>scenes, cameras, rendering</p>
+                </section>
+                <section>
+                    <h2>Coordinate System</h2>
+                    <p>Right-handed</p>
+                    <img src="images/3d-coordinate-system.png" />
+                    <p>
+                        <small>From <a href="https://msdn.microsoft.com/library/dn479430(v=vs.85).aspx">https://msdn.microsoft.com/library/dn479430(v=vs.85).aspx</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Camera Frustum</h2>
+                    <img src="images/camera-frustum.png" />
+                    <p>
+                        <small>From <a href="https://msdn.microsoft.com/library/dn479430(v=vs.85).aspx">https://msdn.microsoft.com/library/dn479430(v=vs.85).aspx</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>WebGL</h2>
+                    <ul>
+                        <li>Web Graphics Library</li>
+                        <li>Hardware accelerated (GPU)</li>
+                        <li>New canvas rendering context <code>webgl</code></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Proven Technology</h2>
+                    <ul>
+                        <li>Based on OpenGL for Embedded Systems</li>
+                        <li>Blender & Unity can export to WebGL</li>
+                        <li>ANGLE (Chrome/Firefox): Rendering on Direct3D</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>three.js</h2>
+                    <ul>
+                        <li>Native WebGL <em>is</em> complex</li>
+                        <li>Open-source JavaScript library</li>
+                        <li>High-level API abstracting WebGL (and more)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Structure</h2>
+                    <ul>
+                        <li>Geometry: shape (cube, sphere, …)</li>
+                        <li>Material: color, texture, light reflection</li>
+                        <li>Mesh: 3D object (geometry + material)</li>
+                    </ul>
+                    <img src="images/3d_mesh.jpg" />
+                </section>
+                <section>
+                    <h2>Browser support</h2>
+                    <img src="images/browsersupport-webgl.jpg" />
+                    <p>
+                        <small>From <a href="http://caniuse.com/#search=webgl">http://caniuse.com/#search=webgl</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Mobile Platform Support</h2>
+                    <ul>
+                        <li>iOS 8+</li>
+                        <li>Android</li>
+                        <ul>
+                            <li>WebView 36+</li>
+                            <li>Crosswalk</li>
+                        </ul>
+                        <li>Windows (Phone) 8.1+</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Controls</h2>
+                    <ul>
+                        <li>Mouse/Keyboard</li>
+                        <li>Touch</li>
+                        <li>Gamepad</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>The Creation of the World</h2>
+                </section>
+                <section>
+                    <h2>Even more samples…</h2>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="images/flight-arcade.jpg" />
+                                    <p><a href="http://www.flightarcade.com">Flight Arcade</a></p>
+                                </td>
+                                <td>
+                                    <img src="images/physijs.jpg" /><br/>
+                                    <p><a href="https://chandlerprall.github.io/Physijs/">Physijs</a></p>
+                                </td>
+                                <td>
+                                    <img src="images/threejs-sample.jpg" /><br/>
+                                    <p><a href="http://threejs.org/">three.js samples</a></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h1>Gamepad</h1>
+                    <h3>Fun it up!</h3>
+                </section>
+                <section>
+                    <h2>HTML5 Gamepad API</h2>
+                    <ul>
+                        <li><strong>Polling</strong></li>
+                        <li>Access to <strong>a set</strong> of connected gamepads</li>
+                        <li>Access to the gamepad’s <strong>button and axis</strong> states</li>
+                        <li>Gamepads appear as soon as the first button was pressed</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Browser Support</h2>
+                    <img src="images/browsersupport-gamepad.png" />
+                    <p>
+                        <small>From <a href="http://caniuse.com/#search=webgl">http://caniuse.com/#search=gamepad</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Gamepad Mapping</h2>
+                    <p>Standard Layout</p>
+                    <img src="images/gamepad.png" />
+                    <p>
+                        <small>From <a href="https://w3c.github.io/gamepad/#remapping">https://w3c.github.io/gamepad/#remapping</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h1>Summary</h1>
+                    <ul>
+                        <li>Cross platform high-performance graphic manipulation</li>
+                        <li>2D &amp; 3D</li>
+                        <li>Hardware acceleration</li>
+                        <li>Supported by all major browsers</li>
+                        <li>Touch-enabled, gamepad-enabled</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Thank you!</h1>
+                    <p>
+                        GitHub repository: <br/><a href="https://github.com/thinktecture/2d-3d-gamepad">https://github.com/thinktecture/2d-3d-gamepad</a>
+                    </p>
+                    <div style="height: 150px"></div>
+                    <p><img src="images/ttLogo.png" style="width: 15%" class="tt-logo" /><br/>
+                    <small><a href="http://thinktecture.com" class="tt-link">thinktecture.com</a></small></p>
+                </section>
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available at:
+            			// https://github.com/hakimel/reveal.js#configuration
+            			Reveal.initialize({
+                            controls: false,
+                            history: true,
+                            slideNumber: true,
+            				transition: 'slide', // none/fade/slide/convex/concave/zoom
+            
+            				// Optional reveal.js plugins
+            				dependencies: [
+            					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            					{ src: 'plugin/zoom-js/zoom.js', async: true }
+            				]
+            			});
+        </script>
+    </body>
+
+</html>

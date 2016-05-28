@@ -1,0 +1,5 @@
+src/cordova/platforms
+src/cordova/plugins
+src/cordova/www
+src/cordova/out
+src/node_modules
